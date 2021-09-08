@@ -39,6 +39,8 @@ class Quiz:
         # keep a counter of correct answers
         self.correct=0
 
+
+
     def display_result(self):
 
         # calculates the wrong count
@@ -97,6 +99,7 @@ class Quiz:
         # placing the Quit button on the screen
         quit_button.place(x=700,y=50)
 
+#adds the text for the radio buttons
     def display_options(self):
 
         val=0
@@ -110,19 +113,23 @@ class Quiz:
             self.opts[val]['text']=option
             val+=1
 
+
     def display_question(self):
 
         q_no = Label(gui, text = question[self.q_no], width=60,
                      font=( 'ariel' ,16, 'bold' ), anchor= 'w' )
 
+        q_no.place(x=1, y=2)
+
     def display_title(self):
 
         title = Label(gui, text="Radiant quiz",
-            width=50, bg="green",fg="white", font=("ariel", 20, "bold"))
+                      width=50, bg="green",fg="white", font=("ariel", 20, "bold"))
 
         # place of the title
         title.place(x=0, y=2)
 
+# adds the radio buttons without the text
     def radio_buttons(self):
 
         q_list=[]
