@@ -42,28 +42,23 @@ class Quiz:
 
     def display_result(self):
 
-        # calculates the wrong count
-        wrong_count = self.data_size - self.correct
-        correct = f"Correct: {self.correct}"
-        wrong = f"Wrong: {wrong_count}"
 
-        # calcultaes the percentage of correct answers
-        score = int(self.correct / self.data_size * 100)
-        result = f"Score: {score}%"
+
+        result = "you are radiant"
 
         # Shows a message box to display the result
-        mb.showinfo("Result", f"{result}\n{correct}\n{wrong}")
+
+        value = self.opt_selected.get()
+        if self.opt_selected == 1:
+            value = "you are a windrunner"
+
+        mb.showinfo("Result", f"{value}")
+
 
     def check_answer(self, q_no):
 
         if self.opt_selected.get() == answer[q_no]:
-
-
-
-
-            return True
-
-
+            return
 
 
     def next_btn(self):
@@ -77,7 +72,6 @@ class Quiz:
             self.correct += 1
         all_answers.append(self.opt_selected.get())
         print(all_answers)
-
 
         # Moves to next Question by incrementing the q_no counter
         self.q_no += 1
