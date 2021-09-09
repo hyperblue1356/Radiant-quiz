@@ -40,7 +40,6 @@ class Quiz:
         self.correct=0
 
 
-
     def display_result(self):
 
         # calculates the wrong count
@@ -59,15 +58,26 @@ class Quiz:
 
         if self.opt_selected.get() == answer[q_no]:
 
+
+
+
             return True
 
+
+
+
     def next_btn(self):
+
+        all_answers = []
 
         # Check if the answer is correct
         if self.check_answer(self.q_no):
 
             # if the answer is correct it increments the correct by 1
             self.correct += 1
+        all_answers.append(self.opt_selected.get())
+        print(all_answers)
+
 
         # Moves to next Question by incrementing the q_no counter
         self.q_no += 1
@@ -99,7 +109,7 @@ class Quiz:
         # placing the Quit button on the screen
         quit_button.place(x=700,y=50)
 
-#adds the text for the radio buttons
+    #adds the text for the radio buttons
     def display_options(self):
 
         val=0
@@ -129,7 +139,7 @@ class Quiz:
         # place of the title
         title.place(x=0, y=2)
 
-# adds the radio buttons without the text
+    # adds the radio buttons without the text
     def radio_buttons(self):
 
         q_list=[]
