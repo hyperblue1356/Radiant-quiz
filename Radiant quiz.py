@@ -48,14 +48,23 @@ class Quiz:
 
         # Shows a message box to display the result
         if result[0] == 1:
-            mb.showinfo("Result", "You are a windrunner")
+            mb.showinfo("Result", "You could be a Windrunner")
+        elif result[0] == 2:
+            mb.showinfo("Result", "You could be a Lightweaver")
+        elif result[0] == 3:
+            mb.showinfo("Result", "You could be a Bondsmith")
+        elif result[0] == 4:
+            mb.showinfo("Result", "You could be a Edgedancer")
+        elif result[0] == 5:
+            mb.showinfo("Result", "You could be a Dustbringer")
+        elif result[1] == 1:
+            mb.showinfo("Result", "You are a cryptic?")
+        elif result[2] == 1:
+            mb.showinfo("Result", "You are a bondsmith?")
+        elif result[3] == 1:
+            mb.showinfo("Result", "You are a slidey person?")
 
-
-
-
-
-
-    #def check_answer(self, q_no):
+            #def check_answer(self, q_no):
 
         #if self.opt_selected.get() == answer[q_no]:
             return
@@ -143,7 +152,7 @@ class Quiz:
         # position of the first option
         y_pos = 150
 
-        while len(q_list)<4:
+        while len(q_list)<5:
 
             radio_btn = Radiobutton(gui, text=" ", variable= self.opt_selected,
                                     value = len(q_list)+1,font = ("ariel",14))
