@@ -15,6 +15,8 @@ class Quiz:
         # set question number to 0
         self.q_no=0
 
+        self.all_answers = []
+
         # assigns ques to the display_question function to update later.
         self.display_title()
         self.display_question()
@@ -42,36 +44,35 @@ class Quiz:
 
     def display_result(self):
 
-
-
-        result = "you are radiant"
+        result = self.all_answers
 
         # Shows a message box to display the result
-
-        value = self.opt_selected.get()
-        if self.opt_selected == 1:
-            value = "you are a windrunner"
-
-        mb.showinfo("Result", f"{value}")
+        if result[0] == 1:
+            mb.showinfo("Result", "You are a windrunner")
 
 
-    def check_answer(self, q_no):
 
-        if self.opt_selected.get() == answer[q_no]:
+
+
+
+    #def check_answer(self, q_no):
+
+        #if self.opt_selected.get() == answer[q_no]:
             return
 
 
     def next_btn(self):
 
-        all_answers = []
+        self.all_answers.append(self.opt_selected.get())
 
         # Check if the answer is correct
-        if self.check_answer(self.q_no):
+        #if self.check_answer(self.q_no):
 
             # if the answer is correct it increments the correct by 1
-            self.correct += 1
-        all_answers.append(self.opt_selected.get())
-        print(all_answers)
+        self.correct += 1
+
+
+
 
         # Moves to next Question by incrementing the q_no counter
         self.q_no += 1
@@ -88,6 +89,7 @@ class Quiz:
             # shows the next question
             self.display_question()
             self.display_options()
+
 
     def buttons(self):
 
@@ -174,7 +176,7 @@ with open('data.json') as f:
 # set the question, options, and answer
 question = (data['question'])
 options = (data['options'])
-answer = (data[ 'answer'])
+#answer = (data[ 'answer'])
 
 # create an object of the Quiz Class.
 quiz = Quiz()
