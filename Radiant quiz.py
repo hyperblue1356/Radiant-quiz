@@ -44,21 +44,32 @@ class Quiz:
 
     def display_result(self):
 
+
+
         result = self.all_answers
+
+        for option in options[self.q_no]:
+            options1 = options[0]
 
         # Shows a message box to display the result
         if result[0] == 1:
-            mb.showinfo("Result", "You could be a Windrunner")
+            if 1 in result:
+                answer = "you are windrunner"
+                mb.showinfo("Result", answer)
         elif result[0] == 2:
-            mb.showinfo("Result", "You could be a Lightweaver")
+            if 2 in result:
+                answer = "you are lightweaver"
+                mb.showinfo("Result", "You could be a Lightweaver")
         elif result[0] == 3:
             mb.showinfo("Result", "You could be a Bondsmith")
         elif result[0] == 4:
             mb.showinfo("Result", "You could be a Edgedancer")
-        elif result[0] == 5:
+        else:
             mb.showinfo("Result", "You could be a Dustbringer")
-        elif result[1] == 1:
-            mb.showinfo("Result", "You are a cryptic?")
+        if result[1] == 1:
+            if 1 in result:
+                answer = "you are cryptic"
+                mb.showinfo("Result", answer)
         elif result[2] == 1:
             mb.showinfo("Result", "You are a bondsmith?")
         elif result[3] == 1:
@@ -66,7 +77,7 @@ class Quiz:
 
             #def check_answer(self, q_no):
 
-        #if self.opt_selected.get() == answer[q_no]:
+            #if self.opt_selected.get() == answer[q_no]:
             return
 
 
@@ -77,7 +88,7 @@ class Quiz:
         # Check if the answer is correct
         #if self.check_answer(self.q_no):
 
-            # if the answer is correct it increments the correct by 1
+        # if the answer is correct it increments the correct by 1
         self.correct += 1
 
 
@@ -90,7 +101,7 @@ class Quiz:
         if self.q_no==self.data_size:
 
             # if it is correct then it displays the score
-            self.display_result()
+
 
             # destroys the GUI
             gui.destroy()
@@ -98,6 +109,7 @@ class Quiz:
             # shows the next question
             self.display_question()
             self.display_options()
+            self.display_result()
 
 
     def buttons(self):
